@@ -37,8 +37,6 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
     width: 100%;
 }
 
@@ -125,4 +123,66 @@ form button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.radio-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.radio-buttons label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-schedule-table th, .user-schedule-table td {
+    border-right: 1px solid #ddd;
+    padding: 8px;
+}
+
+.user-schedule-table th:last-child, .user-schedule-table td:last-child {
+    border-right: none;
+}
+
+.user-schedule-table form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.user-schedule-table form button {
+    width: auto;
+    padding: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
 }

@@ -23,10 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: schedule.php');
             exit();
         } else {
-            echo "Senha incorreta.";
+            echo '<div class="alert alert-danger">Senha incorreta.</div>';
         }
     } else {
-        echo "Usuário não encontrado.";
+        echo '<div class="alert alert-danger">Usuário não encontrado.</div>';
     }
     
     $stmt->close();

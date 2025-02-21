@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/02/2025 às 01:26
+-- Tempo de geração: 21/02/2025 às 21:04
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -20,6 +20,54 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `acbp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `aeronaves`
+--
+
+CREATE TABLE `aeronaves` (
+  `id` int(11) NOT NULL,
+  `matricula` varchar(50) NOT NULL,
+  `modelo` varchar(100) NOT NULL,
+  `horas_totais` int(11) NOT NULL,
+  `horas_desde_ultima_revisao` int(11) NOT NULL,
+  `horas_ate_proxima_revisao` int(11) NOT NULL,
+  `ultima_manutencao` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `aeronaves`
+--
+
+INSERT INTO `aeronaves` (`id`, `matricula`, `modelo`, `horas_totais`, `horas_desde_ultima_revisao`, `horas_ate_proxima_revisao`, `ultima_manutencao`) VALUES
+(1, 'PT-MDN', 'C-152', 1200, 200, 1000, '2025-01-01'),
+(2, 'PT-XYZ', 'C-172', 1500, 300, 1200, '2025-02-01'),
+(3, 'PT-ABC', 'PA-28', 1800, 400, 1400, '2025-03-01');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `schedules`
+--
+
+CREATE TABLE `schedules` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `track_name` varchar(100) NOT NULL,
+  `aircraft_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `schedules`
+--
+
+INSERT INTO `schedules` (`id`, `user_id`, `date`, `start_time`, `end_time`, `track_name`, `aircraft_id`) VALUES
+(8, 2, '2025-02-24', '11:00:00', '12:00:00', 'nome de pista teste', 1);
 
 -- --------------------------------------------------------
 
@@ -50,6 +98,20 @@ INSERT INTO `users` (`id`, `nome`, `nome_de_pista`, `email`, `senha`, `curso`, `
 --
 
 --
+-- Índices de tabela `aeronaves`
+--
+ALTER TABLE `aeronaves`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `schedules`
+--
+ALTER TABLE `schedules`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `aircraft_id` (`aircraft_id`);
+
+--
 -- Índices de tabela `users`
 --
 ALTER TABLE `users`
@@ -61,90 +123,22 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT de tabela `users`
+-- AUTO_INCREMENT de tabela `aeronaves`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Estrutura para tabela `schedules`
---
-
-CREATE TABLE `schedules` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `start_time` time NOT NULL,
-  `end_time` time NOT NULL,
-  `track_name` varchar(100) NOT NULL,
-  `aircraft_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices de tabela `schedules`
---
-ALTER TABLE `schedules`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `aircraft_id` (`aircraft_id`);
-
---
--- AUTO_INCREMENT para tabelas despejadas
---
+ALTER TABLE `aeronaves`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Estrutura para tabela `aeronaves`
+-- AUTO_INCREMENT de tabela `users`
 --
-
-CREATE TABLE `aeronaves` (
-  `id` int(11) NOT NULL,
-  `matricula` varchar(50) NOT NULL,
-  `modelo` varchar(100) NOT NULL,
-  `horas_totais` int(11) NOT NULL,
-  `horas_desde_ultima_revisao` int(11) NOT NULL,
-  `horas_ate_proxima_revisao` int(11) NOT NULL,
-  `ultima_manutencao` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `aeronaves`
---
-
-INSERT INTO `aeronaves` (`id`, `matricula`, `modelo`, `horas_totais`, `horas_desde_ultima_revisao`, `horas_ate_proxima_revisao`, `ultima_manutencao`) VALUES
-(1, 'PT-MDN', 'C-152', 1200, 200, 1000, '2025-01-01'),
-(2, 'PT-XYZ', 'C-172', 1500, 300, 1200, '2025-02-01'),
-(3, 'PT-ABC', 'PA-28', 1800, 400, 1400, '2025-03-01');
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices de tabela `aeronaves`
---
-ALTER TABLE `aeronaves`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT para tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `aeronaves`
---
-ALTER TABLE `aeronaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssssss", $nome, $nome_de_pista, $email, $password, $curso, $habilitacao, $cargo);
 
     if ($stmt->execute()) {
-        echo "Usuário registrado com sucesso.";
+        echo '<div class="alert alert-success">Usuário registrado com sucesso.</div>';
     } else {
-        echo "Erro ao registrar usuário: " . $stmt->error;
+        echo '<div class="alert alert-danger">Erro ao registrar usuário: ' . $stmt->error . '</div>';
     }
 
     $stmt->close();
