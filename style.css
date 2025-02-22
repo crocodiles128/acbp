@@ -72,6 +72,10 @@ form button {
     cursor: pointer;
 }
 
+form button:hover {
+    background-color: #555;
+}
+
 .schedule-container {
     max-width: 800px;
     margin: 2rem auto;
@@ -101,6 +105,28 @@ form button {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.schedule-form label, .schedule-form input, .schedule-form select, .schedule-form button {
+    margin: 10px 0;
+    width: 80%;
+}
+
+.schedule-form select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.schedule-form select:focus {
+    outline: none;
+    border-color: #333;
 }
 
 .schedule-form label {
@@ -282,9 +308,27 @@ form button {
     font-weight: bold;
 }
 
-.close:hover,
+close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-bottom: 1rem; /* Add margin to separate from the element below */
+}
+
+select:focus {
+    outline: none;
+    border-color: #333;
 }

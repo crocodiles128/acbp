@@ -25,7 +25,11 @@
             <label for="habilitacao">Habilitação:</label>
             <input type="text" id="habilitacao" name="habilitacao">
             <label for="cargo">Cargo:</label>
-            <input type="text" id="cargo" name="cargo">
+            <select id="cargo" name="cargo" required>
+                <option value="Aluno">Aluno</option>
+                <option value="Operacoes">Operacoes</option>
+                <option value="Manutencao">Manutencao</option>
+            </select>
             <button type="submit">Registrar</button>
         </form>
     </main>

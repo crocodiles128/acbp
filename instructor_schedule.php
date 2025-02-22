@@ -167,9 +167,17 @@ $stmt->close();
                 <label for="num_landings">N° de Pousos:</label>
                 <input type="number" id="num_landings" name="num_landings" required>
                 <label for="student_flight_role">Função em Voo do Aluno:</label>
-                <input type="text" id="student_flight_role" name="student_flight_role" required>
+                <select id="student_flight_role" name="student_flight_role" required>
+                    <option value="Piloto">Piloto</option>
+                    <option value="Copiloto">Copiloto</option>
+                    <option value="Observador">Observador</option>
+                </select>
                 <label for="instructor_flight_role">Função em Voo do Instrutor:</label>
-                <input type="text" id="instructor_flight_role" name="instructor_flight_role" required>
+                <select id="instructor_flight_role" name="instructor_flight_role" required>
+                    <option value="Instrutor">Instrutor</option>
+                    <option value="Avaliador">Avaliador</option>
+                    <option value="Observador">Observador</option>
+                </select>
                 <label for="flight_hours">Horas de Voo:</label>
                 <input type="number" step="0.1" id="flight_hours" name="flight_hours" required>
                 <button type="submit" name="action" value="close">Fechar Voo</button>

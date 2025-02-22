@@ -209,7 +209,7 @@ $time_slots = ["08:00", "09:30", "11:00", "12:30", "14:00", "15:30", "17:00"];
                             <td>' . $schedule['modelo'] . '</td>
                             <td>' . $schedule['nome_de_pista'] . '</td>
                             <td>
-                                <form method="POST" style="display:inline;">
+                                <form method="POST">
                                     <input type="hidden" name="schedule_id" value="' . $schedule['id'] . '">
                                     <select name="assign_instructor_id" required>
                                         <option value="">Selecione</option>';
@@ -221,7 +221,7 @@ $time_slots = ["08:00", "09:30", "11:00", "12:30", "14:00", "15:30", "17:00"];
                                 </form>
                             </td>
                             <td>
-                                <form method="POST" style="display:inline;">
+                                <form method="POST">
                                     <input type="hidden" name="cancel_schedule_id" value="' . $schedule['id'] . '">
                                     <button type="submit">Cancelar</button>
                                 </form>
